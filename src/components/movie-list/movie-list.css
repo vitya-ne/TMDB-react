@@ -1,0 +1,6 @@
+.movie-list {
+    flex: 1;
+    height: 100%;
+    overflow-y: auto;
+    flex-direction: column;
+}

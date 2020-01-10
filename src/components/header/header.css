@@ -1,0 +1,52 @@
+
+header {
+    min-height: 80px;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #BBB;
+}
+
+h1 {
+    flex: 1 1 50%;
+    margin: 1rem 0;
+    color: #506a92;
+}
+
+.control-input,
+.control-button {
+    margin: 0;
+    padding: .375rem .75rem;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.control-input {
+    flex: 1 1 auto;
+    margin: 0 .5rem;
+}
+
+.error-key {
+    background-color: #ffdddd;
+}
+
+.control-button {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    cursor: pointer;
+    color: #FFF;
+    background-color: #506a92;
+}
+
+.key-form {
+    flex: 1 1 50%;
+    margin: 1rem 0;
+    justify-content: center;
+    align-items: center;
+}
+.key-form > label {
+    padding-right: 1rem;
+    color: #777;
+    white-space: nowrap;
+}
