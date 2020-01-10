@@ -14,8 +14,6 @@ const Header = props => {
 
         if ( keyAPI.length >= 32 ) {
             props.onKeyEntered( keyAPI );
-        } else {
-            console.log( keyAPI );
         }
     }
 
@@ -24,12 +22,12 @@ const Header = props => {
             <h1>{ props.name }</h1>
             <form
                 className="key-form"
-                onSubmit={handleSubmit}
+                onSubmit={ handleSubmit }
             >
                 <label>API key:</label>
                 <input
                     className={ `control-input
-                        ${props.hasKeyError? 'error-key' : ''}
+                        ${ props.hasKeyError? 'error-key' : '' }
                     ` }
                     placeholder="Your themoviedb.org API Key (v3 auth)"
                     onChange={ handleChange }
