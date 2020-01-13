@@ -8,22 +8,32 @@ const fetchPage = function( page, keyAPI ) {
         );
 }
 
+const getPageNums = pageCount => [
+    ...Array( pageCount ).keys()
+].map( item => item + 2 );
+
 export default {
-    getAllData( keyAPI ) {
-        return fetchPage( 1, keyAPI )
-            .then( first_page =>
-                Promise.all( [2, 3, 4, 5].map(
+    getFirstPageData( keyAPI = '' ) {
+        return fetchPage( 1, keyAPI );
+    },
+    
+    getPagesData( pageCount = 5, keyAPI = '' ) {
+        return this.getFirstPageData( keyAPI )
+            .then( firstPage => {
+                const pageNums = getPageNums( pageCount );
+
+                return Promise.all( pageNums.map(
                     item => fetchPage( item, keyAPI )
                 ) )
-                    .then( other_pages =>
+                    .then( otherPages =>
                         [
-                            first_page,
-                            other_pages.flat()
+                            firstPage,
+                            otherPages.flat()
                         ]
                     )
-            )
-            .then( all_pages =>
-                all_pages.flat()
+            } )
+            .then( allPages =>
+                allPages.flat()
             );
     }
 }
