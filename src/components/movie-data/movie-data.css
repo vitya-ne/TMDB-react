@@ -40,10 +40,14 @@
 }
 
 .col-info {
-    flex: 1 0 25%;
+    flex: 1 0 20%;
 }
 
-.col-info .data {
+.col-info > p {
+    margin: 0 0 .5rem;
+}
+
+.movie-prop {
     color: rgb(28, 20, 71);
 }
 

@@ -3,6 +3,16 @@ import './movie-data.css';
 
 const POSTER_URL = "https://image.tmdb.org/t/p/w200";
 
+const MovieProperty = ( { label, value } ) => {
+    return (
+        <p>
+            { label }: <span className="movie-prop">
+                { value }
+            </span>
+        </p>
+    );
+}
+
 const MovieData = ( { index, movie } ) => {
     return (
         <div className="row">
@@ -27,38 +37,33 @@ const MovieData = ( { index, movie } ) => {
             </div>
             
             <div className="col-info">
-                <p>
-                    Release: <span className="data">
-                        { movie.release_date }
-                    </span>
-                </p>
-                <p>
-                    Id: <span className="data">
-                        { movie.id }
-                    </span>
-                </p>
-                <p>
-                    Popularity: <span className="data">
-                        { movie.popularity }
-                    </span>
-                </p>
-                <p>
-                    Vote count: <span className="data">
-                        { movie.vote_count }
-                    </span>
-                </p>
-                <p>
-                    Vote average: <span className="data">
-                        { movie.vote_average }
-                    </span>
-                </p>
-                <p>
-                    Other:<span className="data">
-                        { movie.adult === true?
+                <MovieProperty
+                    label="Release"
+                    value={ movie.release_date }
+                />
+                <MovieProperty
+                    label="Id"
+                    value={ movie.id }
+                />
+                <MovieProperty
+                    label="Popularity"
+                    value={ movie.popularity }
+                />
+                <MovieProperty
+                    label="Vote count"
+                    value={ movie.vote_count }
+                />
+                <MovieProperty
+                    label="Vote average"
+                    value={ movie.vote_average }
+                />
+                <MovieProperty
+                    label="Other"
+                    value={
+                        movie.adult === true?
                             "adult" : "not adult only"
-                        }
-                    </span>
-                </p>
+                    }
+                />
                 
             </div>
             <div className="col-overview">
