@@ -1,7 +1,6 @@
 .row {
     display: flex;
     align-items: center;
-    color: #999;
     font-size: .9rem;
 }
 .row:nth-child(even) {
@@ -13,18 +12,12 @@
     flex: 0 0 2rem;
 }
 
-.col-id,
-.col-title,
-.col-date {
+.col-title {
     text-align: center;
 }
 
-.col-id {
-    flex: 0 0 4rem;
-}
-
 .col-title {
-    flex: 1 0 20%;
+    flex: 1 0 25%;
     padding-right: .5rem;
     font-size: 1.25rem;
     font-weight: bold;
@@ -35,24 +28,25 @@
     color: #777;
 }
 
-.col-poster,
-.col-adult {
+.col-poster {
     flex: 0 0;
     padding: .5rem;
 }
 
-.col-adult,
-.col-date,
+.col-info,
 .col-overview {
+    padding: .5rem;
     font-size: 1rem;
 }
 
-.col-date {
-    padding: 0 .5rem;
+.col-info {
+    flex: 1 0 25%;
+}
+
+.col-info .data {
     color: rgb(28, 20, 71);
 }
 
 .col-overview {
-    padding: .5rem;
     color: #555;
 }

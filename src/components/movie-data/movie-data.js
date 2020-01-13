@@ -9,9 +9,14 @@ const MovieData = ( { index, movie } ) => {
             <div className="col-index">
                 {index + 1}
             </div>
-            <div className="col-id">
-                { movie.id }
+            <div className="col-poster">
+                <img
+                    src={POSTER_URL + movie.poster_path }
+                    alt=""
+                >
+                </img>
             </div>
+            
             <div className="col-title">
                 { movie.title }
                 { movie.original_title !== movie.title &&
@@ -20,22 +25,41 @@ const MovieData = ( { index, movie } ) => {
                     </p>
                 }
             </div>
-            <div className="col-poster">
-                <img
-                    src={POSTER_URL + movie.poster_path }
-                    alt=""
-                >
-                </img>
-            </div>
-            <div className="col-date">
-                { movie.release_date }
-            </div>
-            <div
-                className="col-adult"
-            >
-                { movie.adult === true?
-                    "adult" : "not adult only"
-                }
+            
+            <div className="col-info">
+                <p>
+                    Release: <span className="data">
+                        { movie.release_date }
+                    </span>
+                </p>
+                <p>
+                    Id: <span className="data">
+                        { movie.id }
+                    </span>
+                </p>
+                <p>
+                    Popularity: <span className="data">
+                        { movie.popularity }
+                    </span>
+                </p>
+                <p>
+                    Vote count: <span className="data">
+                        { movie.vote_count }
+                    </span>
+                </p>
+                <p>
+                    Vote average: <span className="data">
+                        { movie.vote_average }
+                    </span>
+                </p>
+                <p>
+                    Other:<span className="data">
+                        { movie.adult === true?
+                            "adult" : "not adult only"
+                        }
+                    </span>
+                </p>
+                
             </div>
             <div className="col-overview">
                 { movie.overview }

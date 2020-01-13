@@ -3,6 +3,8 @@ import './header.css';
 
       
 const Header = props => {
+    const inputClasses = `control-input ${ props.hasKeyError? 'error-key' : '' }`;
+
     const [ keyAPI, setKeyAPI ] = useState( '' );
     
     const handleChange = event => {
@@ -26,9 +28,7 @@ const Header = props => {
             >
                 <label>API key:</label>
                 <input
-                    className={ `control-input
-                        ${ props.hasKeyError? 'error-key' : '' }
-                    ` }
+                    className= { inputClasses }
                     placeholder="Your themoviedb.org API Key (v3 auth)"
                     onChange={ handleChange }
                     type="text"

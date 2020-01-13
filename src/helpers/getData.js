@@ -29,12 +29,10 @@ export default {
                 return Promise.all( pageNums.map(
                     item => fetchPage( item, keyAPI )
                 ) )
-                    .then( otherPages =>
-                        [
-                            firstPage,
-                            otherPages.flat()
-                        ]
-                    )
+                    .then( otherPages => [
+                        firstPage,
+                        otherPages.flat()
+                    ] )
             } )
             .then( allPages =>
                 allPages.flat()
