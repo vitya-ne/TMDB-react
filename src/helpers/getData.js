@@ -18,9 +18,13 @@ export default {
     },
     
     getPagesData( pageCount = 5, keyAPI = '' ) {
+        if ( pageCount < 1 ) {
+            return Promise.resolve( [] );
+        }
+
         return this.getFirstPageData( keyAPI )
             .then( firstPage => {
-                const pageNums = getPageNums( pageCount );
+                const pageNums = getPageNums( pageCount - 1 );
 
                 return Promise.all( pageNums.map(
                     item => fetchPage( item, keyAPI )

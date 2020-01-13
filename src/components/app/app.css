@@ -10,7 +10,7 @@ body,
 #root {
     display: flex;
     background-color: #CDE4FBC2;
-    font-family: 'Ubuntu', sans-serif;;
+    font-family: 'Ubuntu', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }

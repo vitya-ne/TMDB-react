@@ -15,11 +15,11 @@ const useMovieDataAPI = () => {
             }
 
             const fetchMovieData = async () => {
+                setError( {} );
                 setIsLoading( true );
 
                 try {
                     const result_data = await Request.getPagesData( 5, keyAPI );
-                    setError( {} );
                     setMovies( result_data );
                 } catch ( error ) {
                     console.error( error );

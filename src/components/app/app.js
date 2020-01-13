@@ -17,11 +17,11 @@ function App() {
             <Header
                 name = { name }
                 onKeyEntered = { setKeyAPI }
-                isLoading = { isLoading }
                 hasKeyError = { error.status === 401 }
             />
             <MovieList
                 movies = { movies }
+                isLoading = { isLoading }
                 error = { error }
             />
         </div>
