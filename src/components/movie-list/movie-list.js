@@ -3,15 +3,15 @@ import './movie-list.css';
 
 import { MovieData } from '../movie-data'
 
-const MovieList = props => {
-    const listClasses = `movie-list${ props.isLoading? ' is--loading' : ''}`;
+const MovieList = ( { isLoading, movies } ) => {
+    const listClasses = `movie-list${ isLoading? ' is--loading' : ''}`;
     
-    const ShowLoading = props =>
-        props.isLoading?
-            ( <div> Loading, Please wait..</div>) :
+    const ShowLoading = () =>
+        isLoading?
+            <div> Loading, Please wait..</div> :
             null;
             
-    const items = props.movies.map( ( item, index ) =>
+    const Items = movies.map( ( item, index ) =>
         <MovieData
             key={ item.id }
             index={ index }
@@ -23,10 +23,8 @@ const MovieList = props => {
         <div
             className={ listClasses }
         >
-            <ShowLoading
-                isLoading={ props.isLoading }
-            />
-            { items }
+            { ShowLoading() }
+            { Items }
         </div>
     );
 }
