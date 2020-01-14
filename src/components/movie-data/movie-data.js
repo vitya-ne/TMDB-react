@@ -3,15 +3,13 @@ import './movie-data.css';
 
 const POSTER_URL = "https://image.tmdb.org/t/p/w200";
 
-const MovieProperty = ( { label, value } ) => {
-    return (
-        <p>
-            { label }: <span className="movie-prop">
-                { value }
-            </span>
-        </p>
-    );
-}
+const MovieProperty = ( { label, value } ) => (
+    <p>
+        { label }: <span className="movie-prop">
+            { value }
+        </span>
+    </p>
+);
 
 const MovieData = ( { index, movie } ) => {
     return (

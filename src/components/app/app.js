@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 
 import './app.css';
+import useMovieDataAPI from './hooks/useMovieDataAPI';
 
 import { Header } from '../header';
-import { MovieList } from '../movie-list';
+//import { MovieList } from ;
+const MovieList = React.lazy(
+    () => import( '../movie-list/movie-list.js')
+);
 
-import useMovieDataAPI from './hooks/useMovieDataAPI';
+
 
 const name = "TMDb first 100";
 
@@ -19,11 +23,14 @@ function App() {
                 onKeyEntered = { setKeyAPI }
                 hasKeyError = { error.status === 401 }
             />
-            <MovieList
-                movies = { movies }
-                isLoading = { isLoading }
-                error = { error }
-            />
+            <Suspense fallback={<div>Загрузка...</div>}>
+                <MovieList
+                    movies = { movies }
+                    isLoading = { isLoading }
+                    error = { error }
+                />
+            </Suspense>
+            
         </div>
     );
 }
