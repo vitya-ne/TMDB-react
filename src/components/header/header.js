@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import './header.css';
+import { FocusInput } from '../focus-input';
 
       
 const Header = props => {
-    const inputClasses = `control-input ${ props.hasKeyError? 'error-key' : '' }`;
+    const inputClasses = `control-input${ props.hasKeyError? ' error-key' : '' }`;
+    const inputDefaultValue = props.keyAPI || '';
 
-    const [ keyAPI, setKeyAPI ] = useState( '' );
+    const [ keyAPI, setKeyAPI ] = useState( inputDefaultValue );
     
     const handleChange = event => {
         setKeyAPI( event.target.value );
@@ -19,6 +21,7 @@ const Header = props => {
         }
     }
 
+
     return (
         <header className="header">
             <h1>{ props.name }</h1>
@@ -27,14 +30,13 @@ const Header = props => {
                 onSubmit={ handleSubmit }
             >
                 <label>API key:</label>
-                <input
-                    className= { inputClasses }
-                    placeholder="Your themoviedb.org API Key (v3 auth)"
-                    onChange={ handleChange }
-                    type="text"
-                    name="themoviedb_api_key"
-                    value={ keyAPI }
-                />
+                <FocusInput
+                    classes = { inputClasses }
+                    placeholder = "Your themoviedb.org API Key (v3 auth)"
+                    onChange = { handleChange }
+                    name = "themoviedb_api_key"
+                    value = { keyAPI }
+                ></FocusInput>
                 <input
                     className="control-button"
                     type="submit"
